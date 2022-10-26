@@ -1,4 +1,8 @@
-const container = document.querySelector('.grid');
+const DEFAULT_COLOR = '#333333';
+const DEFAULT_SIZE = 16;
+const DEFAULT_MODE = 'color';
+
+const grid = document.querySelector('.grid');
 
 function createGrid(gridSize) {
     grid.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`; 
@@ -10,3 +14,6 @@ function createGrid(gridSize) {
     }
 }
 
+window.onload = () -> {
+    createGrid(DEFAULT_SIZE);
+}
