@@ -4,11 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link href="styles.css" rel="stylesheet">
     <script src="script.js" defer></script>
     <title>Etch-a-Sketch</title>
 </head>
 <body>
-    
+    <div class="header">
+        <h1 class="title">Etch-a-Sketch</h1>
+    </div>
+    <div class="main">
+        <div class="settings">
+            <input id="color-picker" type="color" value="#333333" />
+            <button id="colorbtn"></button>
+            <button id="rainbowbtn"></button>
+            <button id="deletebtn"></button>
+            <button id="clearbtn"></button>
+            <input id="size-slider" type="range" value="16" min="1" max="64" />
+        </div>
+        <div id="grid" class="grid"></div>
+    </div>
+    <div class="footer">
+        <p>Made by SkysAreRed</p>
+    </div>
 </body>
 </html>

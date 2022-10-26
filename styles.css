@@ -1,3 +1,103 @@
+:root {
+    --primary-dark: #333;
+    --primary-light: #ededed;
+    --secondary-light: #fefefe;
+}
+
+html {
+    /* footer support */
+    position: relative;
+    min-height: 100%;
+}
+
 body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    line-height: 1.6; /* space between lines of text */
+    /* footer support */
+    margin-bottom: 100px;
+}
+
+h1 {
+    line-height: 1.2;
+}
+
+button,
+input {
     width: 100px;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    outline: none;
+}
+
+/* header */
+
+.header {
+    padding: 30px 0;
+}
+
+.title {
+    text-align: center;
+    font-size: 80px;
+}
+
+/* main */
+
+.main {
+    justify-content: flex-start;
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 200px;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid;
+}
+
+button.active {
+    background-color: rgb(146, 22, 22);
+    color: grey;
+}
+
+.grid {
+    display: grid;
+    width: 500px;
+    height: 500px;
+    background-color: lightgrey;
+    box-shadow: brown 0px 3px 8px;
+}
+
+.grid-element {
+    user-select: none;
+}
+/* button.hover {} */
+
+
+/* footer */
+
+.footer {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
 }
