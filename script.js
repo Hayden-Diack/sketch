@@ -21,7 +21,7 @@ const randomBtn = document.getElementById('randomBtn');
 
 colorPicker.oninput = (e) => setCurrentColor(e.target.value);
 colorBtn.onclick = () => setCurrentMode('color');
-randomBtn.onclick = () => setCurrentMode('random' && console.log(setCurrentMode));
+randomBtn.onclick = () => setCurrentMode('random');
 
 let mouseDown = false; // when page loads you cant draw on grid accidentally
 document.body.onmousedown = () => (mouseDown = true); // can draw
@@ -33,41 +33,37 @@ function createGrid(gridSize) {
     for (let i = 0; i < (gridSize * gridSize); i++) {
         const gridElement = document.createElement('div');
         gridElement.classList.add('grid-element');
-        gridElement.addEventListener('mouseover' , (colorChoice || colorRandom)) // both event listeners to update bground colour
-        gridElement.addEventListener('mousedown' , (colorChoice || colorRandom))
+        gridElement.addEventListener('mouseover' , colorChoice) // both event listeners to update bground colour
+        gridElement.addEventListener('mousedown' , colorChoice)
         grid.appendChild(gridElement);
     }
 }
 
 function colorChoice(e) { // e is the let value that holds the colour
     if (e.type === 'mouseover' && !mouseDown) return
-    if (currentMode === 'color') {
-        e.target.style.backgroundColor = currentColor;
-    } else if (currentMode === 'random') {
+    if (currentMode === 'random') {
         let randomN = Math.floor(Math.random() * 255);
         e.target.style.backgroundColor = `rgb(${randomN}, ${randomN}, ${randomN})`;
+    } else if (currentMode === 'color') {
+        e.target.style.backgroundColor = currentColor;
     }
-
 }
-
-
 
 function modeChangeClick(newMode) {
     if (currentMode === 'random') {
-        console.log(currentMode)
+        randomBtn.classList.remove('active')
     } else if (currentMode === 'color') {
-        console.log(currentMode)
+        colorBtn.classList.remove('active')
     } 
 
     if (newMode === 'random') {
-        console.log(newMode)
+        randomBtn.classList.add('active')
     } else if (newMode === 'color') {
-        console.log(newMode)
+        colorBtn.classList.add('active')
     }
 }
 
 window.onload = () => {
     createGrid(DEFAULT_SIZE);
-    console.log(currentMode);
     modeChangeClick(DEFAULT_MODE);
 }
