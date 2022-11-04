@@ -10,8 +10,15 @@ function setCurrentColor(newColor) {
     currentColor = newColor
 }
 
+function setCurrentMode(newMode) {
+    currentMode = newMode
+}
+
 const grid = document.getElementById('grid');
 const colorBtn = document.getElementById('colorBtn');
+
+colorPicker.oninput = (e) => setCurrentColor(e.target.value);
+colorBtn.onclick = () => setCurrentMode('color');
 
 let mousedown = false; // when page loads you cant draw on grid accidentally
 document.body.onmousedown = () => (mouseDown = true); // can draw
@@ -51,4 +58,5 @@ function colorRandom () {
 
 window.onload = () => {
     createGrid(DEFAULT_SIZE);
+    //activateButton(DEFAULT_MODE);
 }
