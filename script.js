@@ -44,8 +44,12 @@ function colorChoice(e) { // e is the let value that holds the colour
 
 }
 
-function colorRandom () {
-
+function colorRandom(e) {
+    if (e.type === 'mouseover' && !mouseDown) return
+    if (currentMode === 'random') {
+        let randomN = Math.floor(Math.random() * 255)
+        e.target.style.backgroundColor = `rgb(${randomN}, ${randomN}, ${randomN})`
+    }
 }
 
 window.onload = () => {
