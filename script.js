@@ -20,7 +20,7 @@ const colorBtn = document.getElementById('colorBtn');
 colorPicker.oninput = (e) => setCurrentColor(e.target.value);
 colorBtn.onclick = () => setCurrentMode('color');
 
-let mousedown = false; // when page loads you cant draw on grid accidentally
+let mouseDown = false; // when page loads you cant draw on grid accidentally
 document.body.onmousedown = () => (mouseDown = true); // can draw
 document.body.onmouseup = () => (mouseDown = false); // cant draw
 
