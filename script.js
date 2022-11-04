@@ -30,8 +30,8 @@ function createGrid(gridSize) {
     for (let i = 0; i < (gridSize * gridSize); i++) {
         const gridElement = document.createElement('div');
         gridElement.classList.add('grid-element');
-        gridElement.addEventListener('mouseover' , changeColor)
-        gridElement.addEventListener('mousedown' , changeColor)
+        gridElement.addEventListener('mouseover' , colorChoice) // both event listeners to update bground colour
+        gridElement.addEventListener('mousedown' , colorChoice)
         grid.appendChild(gridElement);
     }
 }
@@ -41,14 +41,6 @@ function colorChoice(e) { // e is the let value that holds the colour
     if (currentMode === 'color') {
         e.target.style.backgroundColor = currentColor;
     }
-
-    //const grids = grid.querySelectorAll('.grid-element');
-    
-    //colorBtn.textContent = 'Colour Button'; // applies colour button name text via DOM
-
-    //colorBtn.addEventListener = ('click' , () => {
-    //    let Rnum
-    //})
 
 }
 

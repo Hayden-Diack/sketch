@@ -14,4 +14,5 @@ What I've learned so far -
 -window.onload command to run specific functions on webpage loading  
 -getelementbyid versus queryselector  
 -using primary --primary-dark #333; on root for css coloring  
+-mouseover tools to colour in grid backgrounds, as well as styles to change pointer design
 -
