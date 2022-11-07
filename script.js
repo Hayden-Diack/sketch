@@ -15,6 +15,10 @@ function setCurrentMode(newMode) { // mode changer that stores var
     currentMode = newMode
 }
 
+function setCurrentSize(newSize) {
+    currentSize = newSize
+}
+
 const grid = document.getElementById('grid');
 const colorBtn = document.getElementById('colorBtn');
 const randomBtn = document.getElementById('randomBtn');
@@ -23,6 +27,8 @@ const sizeBtn = document.getElementById('sizeBtn');
 colorPicker.oninput = (e) => setCurrentColor(e.target.value);
 colorBtn.onclick = () => setCurrentMode('color');
 randomBtn.onclick = () => setCurrentMode('random');
+
+sizeBtn.onclick = (e) => changeSize(e.target.value);
 
 let mouseDown = false; // when page loads you cant draw on grid accidentally
 document.body.onmousedown = () => (mouseDown = true); // can draw
@@ -40,14 +46,14 @@ function createGrid(gridSize) {
     }
 }
 
-sizeBtn.onclick('click', () => {
-    let user = prompt('What size would you like to input?')
-    if (user === null || user < 1) {
-        let (currentSize === currentSize);
-    } else {
-        let (currentSize === user);
-    }
-})
+function changeSize(value) {
+    setCurrentSize(value)
+    updateSizeValue(value)
+}
+
+function updateSizeValue() {
+    sizeValue.innerHTML = `${value} x ${value}`
+}
 
 function colorChoice(e) { // e is the let value that holds the colour
     if (e.type === 'mouseover' && !mouseDown) return
