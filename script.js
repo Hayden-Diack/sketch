@@ -6,11 +6,11 @@ let currentColor = DEFAULT_COLOR;
 let currentMode = DEFAULT_MODE;
 let currentSize = DEFAULT_SIZE;
 
-function setCurrentColor(newColor) {
+function setCurrentColor(newColor) { 
     currentColor = newColor
 }
 
-function setCurrentMode(newMode) {
+function setCurrentMode(newMode) { // mode changer that stores var
     modeChangeClick(newMode)
     currentMode = newMode
 }
@@ -18,6 +18,7 @@ function setCurrentMode(newMode) {
 const grid = document.getElementById('grid');
 const colorBtn = document.getElementById('colorBtn');
 const randomBtn = document.getElementById('randomBtn');
+const sizeBtn = document.createElement('button');
 
 colorPicker.oninput = (e) => setCurrentColor(e.target.value);
 colorBtn.onclick = () => setCurrentMode('color');
@@ -39,14 +40,33 @@ function createGrid(gridSize) {
     }
 }
 
+function resize() {
+    sizeBtn.textContent = 'Change Size';
+    sizeBtn.addEventListener('click', () => {
+        let user = prompt('What size would you like to input?')
+        if (user === null || user < 1) {
+            createGrid(gridSize)
+            colorChoice(e)
+        } else {
+            createGrid(user,user)
+            colorChoice(e)
+        }
+    })
+    settings.appendChild(sizeBtn).classList.add('huanua');
+}
+
+resize()
+
 function colorChoice(e) { // e is the let value that holds the colour
     if (e.type === 'mouseover' && !mouseDown) return
     if (currentMode === 'random') {
-        let randomN = Math.floor(Math.random() * 255);
-        e.target.style.backgroundColor = `rgb(${randomN}, ${randomN}, ${randomN})`;
+        let randomR = Math.floor(Math.random() * 255);
+        let randomG = Math.floor(Math.random() * 255);
+        let randomB = Math.floor(Math.random() * 255);
+        e.target.style.backgroundColor = `rgb(${randomR},${randomG},${randomB})`;
     } else if (currentMode === 'color') {
         e.target.style.backgroundColor = currentColor;
-    }
+    } 
 }
 
 function modeChangeClick(newMode) {
