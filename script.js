@@ -30,7 +30,7 @@ colorBtn.onclick = () => setCurrentMode('color');
 randomBtn.onclick = () => setCurrentMode('random');
 clearBtn.onclick = () => refreshGrid();
 
-sizeBtn.onclick = (e) => prompt('Size') === sizeValue(e.target.value);
+sizeBtn.onclick = () => updateSizeValue(value)
 
 function changeSize(value) {
     setCurrentSize(value)
