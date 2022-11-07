@@ -15,7 +15,7 @@ function setCurrentMode(newMode) { // mode changer that stores var
     currentMode = newMode
 }
 
-function setCurrentSize(newSize) {
+function setCurrentSize(newSize) { // size var storage 
     currentSize = newSize
 }
 
@@ -30,9 +30,18 @@ colorBtn.onclick = () => setCurrentMode('color');
 randomBtn.onclick = () => setCurrentMode('random');
 clearBtn.onclick = () => refreshGrid();
 
-sizeBtn.onclick = () => {
+sizeBtn.onclick = (e) => prompt('Size') === sizeValue(e.target.value);
 
+function changeSize(value) {
+    setCurrentSize(value)
+    updateSizeValue(value)
+    refreshGrid()
 }
+
+function updateSizeValue(value) {
+    sizeValue.innerHTML = `${value} x ${value}`
+}
+
 let mouseDown = false; // when page loads you cant draw on grid accidentally
 document.body.onmousedown = () => (mouseDown = true); // can draw
 document.body.onmouseup = () => (mouseDown = false); // cant draw
@@ -47,16 +56,6 @@ function createGrid(gridSize) {
         gridElement.addEventListener('mousedown' , colorChoice)
         grid.appendChild(gridElement);
     }
-}
-
-function changeSize(gridSize) {
-    setCurrentSize(gridSize)
-    updateSizeValue(gridSize)
-    refreshGrid()
-}
-
-function updateSizeValue() {
-    sizeValue.innerHTML = `${gridSize} x ${gridSize}`
 }
 
 function refreshGrid() {
