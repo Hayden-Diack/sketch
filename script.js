@@ -18,7 +18,7 @@ function setCurrentMode(newMode) { // mode changer that stores var
 const grid = document.getElementById('grid');
 const colorBtn = document.getElementById('colorBtn');
 const randomBtn = document.getElementById('randomBtn');
-const sizeBtn = document.createElement('button');
+const sizeBtn = document.getElementById('sizeBtn');
 
 colorPicker.oninput = (e) => setCurrentColor(e.target.value);
 colorBtn.onclick = () => setCurrentMode('color');
@@ -40,22 +40,14 @@ function createGrid(gridSize) {
     }
 }
 
-function resize() {
-    sizeBtn.textContent = 'Change Size';
-    sizeBtn.addEventListener('click', () => {
-        let user = prompt('What size would you like to input?')
-        if (user === null || user < 1) {
-            createGrid(gridSize)
-            colorChoice(e)
-        } else {
-            createGrid(user,user)
-            colorChoice(e)
-        }
-    })
-    settings.appendChild(sizeBtn).classList.add('huanua');
-}
-
-resize()
+sizeBtn.onclick('click', () => {
+    let user = prompt('What size would you like to input?')
+    if (user === null || user < 1) {
+        let (currentSize === currentSize);
+    } else {
+        let (currentSize === user);
+    }
+})
 
 function colorChoice(e) { // e is the let value that holds the colour
     if (e.type === 'mouseover' && !mouseDown) return
