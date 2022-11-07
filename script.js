@@ -23,13 +23,16 @@ const grid = document.getElementById('grid');
 const colorBtn = document.getElementById('colorBtn');
 const randomBtn = document.getElementById('randomBtn');
 const sizeBtn = document.getElementById('sizeBtn');
+const clearBtn = document.getElementById('clearBtn');
 
 colorPicker.oninput = (e) => setCurrentColor(e.target.value);
 colorBtn.onclick = () => setCurrentMode('color');
 randomBtn.onclick = () => setCurrentMode('random');
+clearBtn.onclick = () => refreshGrid();
 
-sizeBtn.onclick = (e) => changeSize(e.target.value);
+sizeBtn.onclick = () => {
 
+}
 let mouseDown = false; // when page loads you cant draw on grid accidentally
 document.body.onmousedown = () => (mouseDown = true); // can draw
 document.body.onmouseup = () => (mouseDown = false); // cant draw
@@ -46,13 +49,23 @@ function createGrid(gridSize) {
     }
 }
 
-function changeSize(value) {
-    setCurrentSize(value)
-    updateSizeValue(value)
+function changeSize(gridSize) {
+    setCurrentSize(gridSize)
+    updateSizeValue(gridSize)
+    refreshGrid()
 }
 
 function updateSizeValue() {
-    sizeValue.innerHTML = `${value} x ${value}`
+    sizeValue.innerHTML = `${gridSize} x ${gridSize}`
+}
+
+function refreshGrid() {
+    clearGrid()
+    createGrid(currentSize)
+}
+
+function clearGrid() {
+    grid.innerHTML = ''
 }
 
 function colorChoice(e) { // e is the let value that holds the colour
