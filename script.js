@@ -53,11 +53,13 @@ function createGrid(gridSize) {
 
 function refreshGrid() {
     clearGrid()
-    createGrid(currentSize)
+    //createGrid(currentSize)
 }
 
 function clearGrid() {
     grid.innerHTML = ''
+    //console.log(currentSize)
+    createGrid(currentSize)
 }
 
 function colorChoice(e) { // e is the let value that holds the colour
