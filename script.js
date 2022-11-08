@@ -30,16 +30,9 @@ colorBtn.onclick = () => setCurrentMode('color');
 randomBtn.onclick = () => setCurrentMode('random');
 clearBtn.onclick = () => refreshGrid();
 
-sizeBtn.onclick = () => updateSizeValue(value)
-
-function changeSize(value) {
-    setCurrentSize(value)
-    updateSizeValue(value)
-    refreshGrid()
-}
-
-function updateSizeValue(value) {
-    sizeValue.innerHTML = `${value} x ${value}`
+function updateSize() {
+    let currentSize = prompt('size');
+    createGrid(currentSize)
 }
 
 let mouseDown = false; // when page loads you cant draw on grid accidentally
@@ -47,9 +40,9 @@ document.body.onmousedown = () => (mouseDown = true); // can draw
 document.body.onmouseup = () => (mouseDown = false); // cant draw
 
 function createGrid(gridSize) {
-    grid.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`; 
-    grid.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
-    for (let i = 0; i < (gridSize * gridSize); i++) {
+    grid.style.gridTemplateColumns = `repeat(${gridSize || currentSize}, 1fr)`; 
+    grid.style.gridTemplateRows = `repeat(${gridSize || currentSize}, 1fr)`;
+    for (let i = 0; i < (gridSize * gridSize || currentSize * currentSize); i++) {
         const gridElement = document.createElement('div');
         gridElement.classList.add('grid-element');
         gridElement.addEventListener('mouseover' , colorChoice) // both event listeners to update bground colour
