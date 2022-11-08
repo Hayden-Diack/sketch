@@ -30,7 +30,7 @@ colorBtn.onclick = () => setCurrentMode('color');
 randomBtn.onclick = () => setCurrentMode('random');
 clearBtn.onclick = () => refreshGrid();
 
-function updateSize() {
+function updateSize() { // its done baby
     let currentSize = prompt('size');
     createGrid(currentSize)
 }
