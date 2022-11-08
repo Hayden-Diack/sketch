@@ -79,12 +79,16 @@ function modeChangeClick(newMode) {
         randomBtn.classList.remove('active')
     } else if (currentMode === 'color') {
         colorBtn.classList.remove('active')
-    } 
+    } else if (currentMode === 'eraser') {
+        deleteBtn.classList.remove('active')
+    }
 
     if (newMode === 'random') {
         randomBtn.classList.add('active')
     } else if (newMode === 'color') {
         colorBtn.classList.add('active')
+    } else if (newMode === 'eraser') {
+        deleteBtn.classList.add('active')
     }
 }
 
