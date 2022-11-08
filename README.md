@@ -15,4 +15,7 @@ What I've learned so far -
 -getelementbyid versus queryselector  
 -using primary --primary-dark #333; on root for css coloring  
 -mouseover tools to colour in grid backgrounds, as well as styles to change pointer design
--
+-button active command for highlighting user selected options 
+-rgb color randomizer
+-parseInt with NaN
+-running js onclick function with code stored in index file 

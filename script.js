@@ -90,7 +90,7 @@ function colorChoice(e) { // e is the let value that holds the colour
     }
 }
 
-function modeChangeClick(newMode) {
+function modeChangeClick(newMode) { // this stores all the modes and allows me to create more options with ease
     if (currentMode === 'random') {
         randomBtn.classList.remove('active')
     } else if (currentMode === 'color') {
