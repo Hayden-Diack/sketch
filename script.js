@@ -5,6 +5,7 @@ const DEFAULT_MODE = 'color';
 let currentColor = DEFAULT_COLOR;
 let currentMode = DEFAULT_MODE;
 let currentSize = DEFAULT_SIZE;
+let promptCurrentSize = currentSize;
 
 function setCurrentColor(newColor) { 
     currentColor = newColor
@@ -32,7 +33,18 @@ clearBtn.onclick = () => refreshGrid();
 deleteBtn.onclick = () => setCurrentMode('eraser');
 
 function updateSize() { // its done baby
-    let currentSize = prompt('size');
+    let promptCurrentSize = prompt('size');
+    let currentSize = parseInt(promptCurrentSize, 10);
+    if (isNaN(currentSize)) {
+        window.alert("You must enter a positive integer. (Maximum 100)");
+        return
+    } else if (currentSize <= 0) {
+        window.alert("You must enter a positive integer. (Maximum 100)");
+        return
+    } else if (currentSize > 100) {
+        window.alert("You must enter a positive integer. (Maximum 100)");
+        return
+    }
     createGrid(currentSize)
 }
 
@@ -60,7 +72,8 @@ function refreshGrid() {
 function clearGrid() {
     grid.innerHTML = ''
     //console.log(currentSize)
-    createGrid(currentSize)
+    createGrid(promptCurrentSize)
+    console.log(promptCurrentSize)
 }
 
 function colorChoice(e) { // e is the let value that holds the colour
