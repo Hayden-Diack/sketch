@@ -32,7 +32,7 @@ randomBtn.onclick = () => setCurrentMode('random');
 clearBtn.onclick = () => refreshGrid();
 deleteBtn.onclick = () => setCurrentMode('eraser');
 
-function updateSize() { // its done baby
+function updateSize() { // size update and window alert limiting grid number
     let promptCurrentSize = prompt('size');
     let currentSize = parseInt(promptCurrentSize, 10);
     if (isNaN(currentSize)) {
