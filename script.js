@@ -15,7 +15,7 @@ function setCurrentMode(newMode) { // mode changer that stores var
     currentMode = newMode
 }
 
-function setCurrentSize(newSize) { // size var storage 
+function setCurrentSize(newSize) { // size var storage currently unused code
     currentSize = newSize
 }
 
@@ -29,6 +29,7 @@ colorPicker.oninput = (e) => setCurrentColor(e.target.value);
 colorBtn.onclick = () => setCurrentMode('color');
 randomBtn.onclick = () => setCurrentMode('random');
 clearBtn.onclick = () => refreshGrid();
+deleteBtn.onclick = () => setCurrentMode('eraser');
 
 function updateSize() { // its done baby
     let currentSize = prompt('size');
@@ -71,7 +72,9 @@ function colorChoice(e) { // e is the let value that holds the colour
         e.target.style.backgroundColor = `rgb(${randomR},${randomG},${randomB})`;
     } else if (currentMode === 'color') {
         e.target.style.backgroundColor = currentColor;
-    } 
+    } else if (currentMode === 'eraser') {
+        e.target.style.backgroundColor = 'lightgrey';
+    }
 }
 
 function modeChangeClick(newMode) {
